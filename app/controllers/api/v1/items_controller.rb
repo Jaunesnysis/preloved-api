@@ -2,7 +2,7 @@ module Api
   module V1
     class ItemsController < BaseController
       def index
-        items = Item.includes(:user, :category).all
+        items = SearchItemsService.new(search_params).call
         render_success(items)
       end
 
@@ -42,6 +42,10 @@ module Api
       end
 
       private
+
+      def search_params
+        params.permit(:category_id, :min_price, :max_price, :condition, :query)
+      end
 
       def item_params
         params.require(:item).permit(:title, :description, :price, :condition, :status, :user_id, :category_id)
