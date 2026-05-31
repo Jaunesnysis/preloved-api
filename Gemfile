@@ -12,6 +12,7 @@ gem "redis-client", "~> 0.22"
 gem "dotenv-rails"
 gem "bootsnap", require: false
 gem "connection_pool", "~> 2.4"
+gem "lograge"
 
 group :development, :test do
   gem "rspec-rails"

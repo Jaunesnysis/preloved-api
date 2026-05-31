@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :categories, only: [:index, :show, :create]
       resources :items, only: [:index, :show, :create, :update, :destroy]
       resources :transactions, only: [:index, :show, :create]
+      get "metrics", to: "metrics#index"
     end
   end
 end
